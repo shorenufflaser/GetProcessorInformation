@@ -1,0 +1,20 @@
+c:\users\neil\documents\visual studio 2015\Projects\GetProcessorInformation\GetProcessorInformation\bin\x64\Debug\GetProcessorInformation.exe.config
+c:\users\neil\documents\visual studio 2015\Projects\GetProcessorInformation\GetProcessorInformation\bin\x64\Debug\GetProcessorInformation.exe
+c:\users\neil\documents\visual studio 2015\Projects\GetProcessorInformation\GetProcessorInformation\bin\x64\Debug\GetProcessorInformation.pdb
+c:\users\neil\documents\visual studio 2015\Projects\GetProcessorInformation\GetProcessorInformation\obj\x64\Debug\GetProcessorInformation.FormProcessorInfo.resources
+c:\users\neil\documents\visual studio 2015\Projects\GetProcessorInformation\GetProcessorInformation\obj\x64\Debug\GetProcessorInformation.Properties.Resources.resources
+c:\users\neil\documents\visual studio 2015\Projects\GetProcessorInformation\GetProcessorInformation\obj\x64\Debug\GetProcessorInformation.csproj.GenerateResource.Cache
+c:\users\neil\documents\visual studio 2015\Projects\GetProcessorInformation\GetProcessorInformation\obj\x64\Debug\GetProcessorInformation.exe
+c:\users\neil\documents\visual studio 2015\Projects\GetProcessorInformation\GetProcessorInformation\obj\x64\Debug\GetProcessorInformation.pdb
+C:\Users\Neil\Documents\Visual Studio 2015\Projects\GetProcessorInformation\GetProcessorInformation\obj\x64\Debug\GetProcessorInformation.csprojResolveAssemblyReference.cache
+C:\Users\Neil\Documents\Visual Studio 2015\Projects\GetProcessorInformation\GetProcessorInformation\obj\x64\Debug\GetProcessorInformation.FormUpdateRate.resources
+C:\Users\nshore.LTI\Documents\GitHub\GetProcessorInformation\GetProcessorInformation\bin\x64\Debug\GetProcessorInformation.exe.config
+C:\Users\nshore.LTI\Documents\GitHub\GetProcessorInformation\GetProcessorInformation\obj\x64\Debug\GetProcessorInformation.exe
+C:\Users\nshore.LTI\Documents\GitHub\GetProcessorInformation\GetProcessorInformation\obj\x64\Debug\GetProcessorInformation.pdb
+C:\Users\nshore.LTI\Documents\GitHub\GetProcessorInformation\GetProcessorInformation\bin\x64\Debug\GetProcessorInformation.exe
+C:\Users\nshore.LTI\Documents\GitHub\GetProcessorInformation\GetProcessorInformation\bin\x64\Debug\GetProcessorInformation.pdb
+C:\Users\nshore.LTI\Documents\GitHub\GetProcessorInformation\GetProcessorInformation\obj\x64\Debug\GetProcessorInformation.csprojResolveAssemblyReference.cache
+C:\Users\nshore.LTI\Documents\GitHub\GetProcessorInformation\GetProcessorInformation\obj\x64\Debug\GetProcessorInformation.FormUpdateRate.resources
+C:\Users\nshore.LTI\Documents\GitHub\GetProcessorInformation\GetProcessorInformation\obj\x64\Debug\GetProcessorInformation.FormProcessorInfo.resources
+C:\Users\nshore.LTI\Documents\GitHub\GetProcessorInformation\GetProcessorInformation\obj\x64\Debug\GetProcessorInformation.Properties.Resources.resources
+C:\Users\nshore.LTI\Documents\GitHub\GetProcessorInformation\GetProcessorInformation\obj\x64\Debug\GetProcessorInformation.csproj.GenerateResource.Cache

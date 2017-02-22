@@ -82,6 +82,8 @@ namespace GetProcessorInformation
             m_brushes.Add(brush);
             brush = new SolidBrush(Color.Pink);
             m_brushes.Add(brush);
+            brush = new SolidBrush(Color.Chocolate);
+            m_brushes.Add(brush);
         }
 
         protected int GetProcessorInfo()

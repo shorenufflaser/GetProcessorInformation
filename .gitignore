@@ -45,3 +45,7 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+/GetProcessorInformation/bin
+/GetProcessorInformation/obj/Debug
+*.suo
+*.resx
