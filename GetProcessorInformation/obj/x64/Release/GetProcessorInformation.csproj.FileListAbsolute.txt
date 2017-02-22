@@ -1,0 +1,10 @@
+c:\users\neil\documents\visual studio 2015\Projects\GetProcessorInformation\GetProcessorInformation\bin\x64\Release\GetProcessorInformation.exe.config
+c:\users\neil\documents\visual studio 2015\Projects\GetProcessorInformation\GetProcessorInformation\bin\x64\Release\GetProcessorInformation.exe
+c:\users\neil\documents\visual studio 2015\Projects\GetProcessorInformation\GetProcessorInformation\bin\x64\Release\GetProcessorInformation.pdb
+c:\users\neil\documents\visual studio 2015\Projects\GetProcessorInformation\GetProcessorInformation\obj\x64\Release\GetProcessorInformation.FormProcessorInfo.resources
+c:\users\neil\documents\visual studio 2015\Projects\GetProcessorInformation\GetProcessorInformation\obj\x64\Release\GetProcessorInformation.Properties.Resources.resources
+c:\users\neil\documents\visual studio 2015\Projects\GetProcessorInformation\GetProcessorInformation\obj\x64\Release\GetProcessorInformation.csproj.GenerateResource.Cache
+c:\users\neil\documents\visual studio 2015\Projects\GetProcessorInformation\GetProcessorInformation\obj\x64\Release\GetProcessorInformation.exe
+c:\users\neil\documents\visual studio 2015\Projects\GetProcessorInformation\GetProcessorInformation\obj\x64\Release\GetProcessorInformation.pdb
+C:\Users\Neil\Documents\Visual Studio 2015\Projects\GetProcessorInformation\GetProcessorInformation\obj\x64\Release\GetProcessorInformation.FormUpdateRate.resources
+C:\Users\Neil\Documents\Visual Studio 2015\Projects\GetProcessorInformation\GetProcessorInformation\obj\x64\Release\GetProcessorInformation.csprojResolveAssemblyReference.cache
