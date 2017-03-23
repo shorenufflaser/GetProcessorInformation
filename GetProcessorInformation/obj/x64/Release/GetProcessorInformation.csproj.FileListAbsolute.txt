@@ -11,3 +11,10 @@ C:\Users\Neil\Documents\Visual Studio 2015\Projects\GetProcessorInformation\GetP
 C:\Users\nshore.LTI\Documents\GitHub\GetProcessorInformation\GetProcessorInformation\bin\x64\Release\GetProcessorInformation.exe.config
 C:\Users\nshore.LTI\Documents\GitHub\GetProcessorInformation\GetProcessorInformation\obj\x64\Release\GetProcessorInformation.exe
 C:\Users\nshore.LTI\Documents\GitHub\GetProcessorInformation\GetProcessorInformation\obj\x64\Release\GetProcessorInformation.pdb
+C:\Users\nshore.LTI\Documents\GitHub\GetProcessorInformation\GetProcessorInformation\bin\x64\Release\GetProcessorInformation.exe
+C:\Users\nshore.LTI\Documents\GitHub\GetProcessorInformation\GetProcessorInformation\bin\x64\Release\GetProcessorInformation.pdb
+C:\Users\nshore.LTI\Documents\GitHub\GetProcessorInformation\GetProcessorInformation\obj\x64\Release\GetProcessorInformation.csprojResolveAssemblyReference.cache
+C:\Users\nshore.LTI\Documents\GitHub\GetProcessorInformation\GetProcessorInformation\obj\x64\Release\GetProcessorInformation.FormUpdateRate.resources
+C:\Users\nshore.LTI\Documents\GitHub\GetProcessorInformation\GetProcessorInformation\obj\x64\Release\GetProcessorInformation.FormProcessorInfo.resources
+C:\Users\nshore.LTI\Documents\GitHub\GetProcessorInformation\GetProcessorInformation\obj\x64\Release\GetProcessorInformation.Properties.Resources.resources
+C:\Users\nshore.LTI\Documents\GitHub\GetProcessorInformation\GetProcessorInformation\obj\x64\Release\GetProcessorInformation.csproj.GenerateResource.Cache

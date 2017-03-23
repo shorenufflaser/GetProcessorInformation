@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
 using System.Management;
@@ -29,6 +30,7 @@ namespace GetProcessorInformation
             m_iNoCores = 0;
             m_iLogicalProcessors = 0;
             m_iLastError = 0;
+            m_DiskPerformanceCount = null;
             m_perform = new List<PerformanceCounter>();
             m_percentPerform = new List<float>();
             m_stFormat = new StringFormat();
@@ -54,12 +56,15 @@ namespace GetProcessorInformation
         protected bool m_bSetWindowPos;
         protected float m_fTotalMemoryAvailable;
         protected float m_fTotalMemoryInUse;
+        protected float m_fTotalDiskTime;
         protected string m_stAppPath;
         protected Rectangle m_rectNewWindowPos;
         protected StringFormat m_stFormat;
         protected List<PerformanceCounter> m_perform;
         protected List<float> m_percentPerform;
         protected List<SolidBrush> m_brushes;
+        protected PerformanceCounter m_DiskPerformanceCount;
+
 
         protected void CreateListOfBrushes()
         {
@@ -121,6 +126,40 @@ namespace GetProcessorInformation
             return iRet;
         }
 
+        protected int GetDiskTime()
+        {
+            int iRet;
+
+            iRet = 0;
+            try
+            {
+                if (m_DiskPerformanceCount == null)
+                {
+                    string[] arrInst;
+                    PerformanceCounterCategory pcc;
+                    pcc = new PerformanceCounterCategory("PhysicalDisk");
+                    arrInst = pcc.GetInstanceNames();
+
+                    m_DiskPerformanceCount = new PerformanceCounter("PhysicalDisk", "% Idle Time", "_Total");
+                    //m_DiskPerformanceCount = new PerformanceCounter("PhysicalDisk", "% Idle Time", "2 D:");
+                }
+                m_fTotalDiskTime = 100.0f - m_DiskPerformanceCount.NextValue();
+                if (m_fTotalDiskTime > 100.0f)
+                    m_fTotalDiskTime = 100.0f;
+                else if (m_fTotalDiskTime < 0.0f)
+                    m_fTotalDiskTime = 0.0f;
+            }
+            catch (Exception ex)
+            {
+                iRet = ex.HResult;
+                MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+            return iRet;
+
+        }
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             string stData;
@@ -136,6 +175,9 @@ namespace GetProcessorInformation
                 txtCPUUsage.Text += stData;
                 txtCPUUsage.Text += "\r\n";
             }
+
+            GetDiskTime();
+
             if (m_bPlot)
             {
                 PlotUsageBars();
@@ -150,7 +192,11 @@ namespace GetProcessorInformation
 
                 stMemStat = string.Format("Mem in use: {0:0.0} Availible: {1:0.0}", m_fTotalMemoryInUse, m_fTotalMemoryAvailable);
                 toolStripStatusLabelMemory.Text = stMemStat;
+
+                //
+                //performanceCount = new PerformanceCounter("Physical Disk", "% Disk Time");
             }
+                
             catch (Exception ex)
             {
                 m_iLastError = ex.HResult;
@@ -178,23 +224,24 @@ namespace GetProcessorInformation
             }
         }
 
-        private void PlotUsageBars ()
+        private void PlotUsageBars()
         {
-			int iBrushIndex;
+            int iBrushIndex;
             float fDx;
             string stVal;
             RectangleF rect;
+            LinearGradientBrush brDisk;
             Graphics gr = CreateGraphics();
 
             rect = ClientRectangle;
             gr.FillRectangle(Brushes.Black, rect);
             fDx = rect.Width / 100.0f;
-            rect.Height = (float) (ClientRectangle.Height - statusStrip1.Height) / m_iLogicalProcessors;
+            rect.Height = (float)(ClientRectangle.Height - statusStrip1.Height) / (m_iLogicalProcessors + 1);  // 1 row for disk usage
             rect.X = 0.0f;
             rect.Y = 0.0f;
             for (int i = 0; i < m_iLogicalProcessors; i++)
             {
-				iBrushIndex = i % m_brushes.Count;
+                iBrushIndex = i % m_brushes.Count;
                 rect.Width = fDx * m_percentPerform[i];
                 stVal = string.Format("{0:0.0}", m_percentPerform[i]);
                 gr.FillRectangle(m_brushes[iBrushIndex], rect);
@@ -202,8 +249,18 @@ namespace GetProcessorInformation
                 gr.DrawString(stVal, Font, Brushes.White, rect, m_stFormat);
                 rect.Y += rect.Height;
             }
-
-
+            rect.Width = fDx * m_fTotalDiskTime;
+            if (rect.Width > 0.0f)
+            {
+                brDisk = new LinearGradientBrush(rect, Color.Aqua, Color.Blue, LinearGradientMode.Horizontal);
+                gr.FillRectangle(brDisk, rect);
+            }
+            rect.Width = ClientRectangle.Width * 0.95f;
+            stVal = string.Format("Disk Usage {0:0.0}", m_fTotalDiskTime);
+            if (m_fTotalDiskTime > 80.0)
+                gr.DrawString(stVal, Font, Brushes.Black, rect, m_stFormat);
+            else
+                gr.DrawString(stVal, Font, Brushes.White, rect, m_stFormat);
         }
 
         private void updateRateToolStripMenuItem_Click(object sender, EventArgs e)
@@ -295,3 +352,9 @@ namespace GetProcessorInformation
         }
     }
 }
+
+/// ToDo:  Add these parameters to display
+/// PhysicalDisk
+/// % Diks Time _Total
+/// Disk Bytes/sec _Total
+/// 
