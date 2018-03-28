@@ -18,3 +18,14 @@ C:\Users\nshore.LTI\Documents\GitHub\GetProcessorInformation\GetProcessorInforma
 C:\Users\nshore.LTI\Documents\GitHub\GetProcessorInformation\GetProcessorInformation\obj\x64\Debug\GetProcessorInformation.FormProcessorInfo.resources
 C:\Users\nshore.LTI\Documents\GitHub\GetProcessorInformation\GetProcessorInformation\obj\x64\Debug\GetProcessorInformation.Properties.Resources.resources
 C:\Users\nshore.LTI\Documents\GitHub\GetProcessorInformation\GetProcessorInformation\obj\x64\Debug\GetProcessorInformation.csproj.GenerateResource.Cache
+D:\GetHub\GetProcessorInformation\GetProcessorInformation\bin\x64\Debug\GetProcessorInformation.exe.config
+D:\GetHub\GetProcessorInformation\GetProcessorInformation\obj\x64\Debug\GetProcessorInformation.exe
+D:\GetHub\GetProcessorInformation\GetProcessorInformation\obj\x64\Debug\GetProcessorInformation.pdb
+D:\GetHub\GetProcessorInformation\GetProcessorInformation\bin\x64\Debug\GetProcessorInformation.exe
+D:\GetHub\GetProcessorInformation\GetProcessorInformation\bin\x64\Debug\GetProcessorInformation.pdb
+D:\GetHub\GetProcessorInformation\GetProcessorInformation\obj\x64\Debug\GetProcessorInformation.csprojResolveAssemblyReference.cache
+D:\GetHub\GetProcessorInformation\GetProcessorInformation\obj\x64\Debug\GetProcessorInformation.FormUpdateRate.resources
+D:\GetHub\GetProcessorInformation\GetProcessorInformation\obj\x64\Debug\GetProcessorInformation.FormProcessorInfo.resources
+D:\GetHub\GetProcessorInformation\GetProcessorInformation\obj\x64\Debug\GetProcessorInformation.Properties.Resources.resources
+D:\GetHub\GetProcessorInformation\GetProcessorInformation\obj\x64\Debug\GetProcessorInformation.csproj.GenerateResource.Cache
+D:\GetHub\GetProcessorInformation\GetProcessorInformation\obj\x64\Debug\GetProcessorInformation.AboutBox1.resources

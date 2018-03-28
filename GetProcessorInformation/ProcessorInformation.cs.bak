@@ -1,10 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
+using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.IO;
-using System.Runtime.InteropServices;
+using System.Linq;
+using System.Management;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GetProcessorInformation
@@ -19,8 +24,6 @@ namespace GetProcessorInformation
             m_bSetWindowPos = false;
             m_rectNewWindowPos = new Rectangle(Location, Size);
             m_bPlot = false;
-            m_iUpdateRate = 500;            // Must be initialized before set window loacation
-                                            // which reads preferences (NHS 2017-11-20 includes recall of update rate)
             SetUpWindowLocation(false);
 
             m_iNoProcessors = 0;
@@ -39,25 +42,10 @@ namespace GetProcessorInformation
             toolStripStatusNoCores.Text = m_iNoCores.ToString();
             toolStripStatusLogicalProcessors.Text = m_iLogicalProcessors.ToString();
 
-            timer1.Interval = m_iUpdateRate;
+            m_iUpdateRate = 500;
             timer1.Enabled = true;
         }
 
-        // P/Invoke declarations
-        [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
-        private static extern IntPtr GetSystemMenu(IntPtr hWnd, bool bRevert);
-
-        [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
-        private static extern bool AppendMenu(IntPtr hMenu, int uFlags, int uIDNewItem, string lpNewItem);
-
-        [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
-        private static extern bool InsertMenu(IntPtr hMenu, int uPosition, int uFlags, int uIDNewItem, string lpNewItem);
-
-        protected const int WM_SYSCOMMAND = 0x112;
-        protected const int MF_STRING = 0x0;
-        protected const int MF_SEPARATOR = 0x800;
-        protected const int MF_BYPOSITION = 0x400;
-        protected const int SYSMENU_ABOUT_ID = 0x1;
 
         protected int m_iNoProcessors;
         protected int m_iNoCores;
@@ -77,30 +65,6 @@ namespace GetProcessorInformation
         protected List<SolidBrush> m_brushes;
         protected PerformanceCounter m_DiskPerformanceCount;
 
-        protected override void OnHandleCreated(EventArgs e)
-        {
-            base.OnHandleCreated(e);
-
-            // Get a handle to a copy of this form's system (window) menu
-            IntPtr hSysMenu = GetSystemMenu(this.Handle, false);
-
-            // Add a separator
-            InsertMenu(hSysMenu, 5, MF_SEPARATOR | MF_BYPOSITION, SYSMENU_ABOUT_ID, string.Empty);
-
-            // Add the About menu item
-            InsertMenu(hSysMenu, 6, MF_STRING | MF_BYPOSITION, SYSMENU_ABOUT_ID, "&About…");
-        }
-        protected override void WndProc(ref Message m)
-        {
-            base.WndProc(ref m);
-
-            // Test if the About item was selected from the system menu
-            if ((m.Msg == WM_SYSCOMMAND) && ((int)m.WParam == SYSMENU_ABOUT_ID))
-            {
-                AboutBox1 dlg = new AboutBox1();
-                dlg.ShowDialog();
-            }
-        }
 
         protected void CreateListOfBrushes()
         {
@@ -338,7 +302,6 @@ namespace GetProcessorInformation
                     bw.Write(rect.Width);
                     bw.Write(rect.Height);
                     bw.Write(m_bPlot);
-                    bw.Write(m_iUpdateRate);
                     bw.Close();
                 }
                 else
@@ -357,7 +320,6 @@ namespace GetProcessorInformation
                             rect.Width = br.ReadInt32();
                             rect.Height = br.ReadInt32();
                             m_bPlot = br.ReadBoolean();
-                            m_iUpdateRate = br.ReadInt32();
                             br.Close();
                             m_bSetWindowPos = true;
                             m_rectNewWindowPos = rect;
