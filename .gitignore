@@ -87,3 +87,5 @@ ipch/
 
 # Others
 *.Cache
+*.cache
+*.pdb
