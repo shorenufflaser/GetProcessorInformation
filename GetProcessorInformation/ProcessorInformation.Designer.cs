@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProcessorInfo));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabelMemory = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.plotToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updateRateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,13 +43,13 @@
             this.toolStripStatusLogicalProcessors = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.txtCPUUsage = new System.Windows.Forms.TextBox();
-            this.toolStripStatusLabelMemory = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusDiskActivity = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // statusStrip1
             // 
-            this.statusStrip1.Font = new System.Drawing.Font("Blue Highway", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statusStrip1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabelMemory,
             this.toolStripDropDownButton1,
@@ -57,13 +58,20 @@
             this.toolStripStatusLabel2,
             this.toolStripStatusNoCores,
             this.toolStripStatusLabel3,
-            this.toolStripStatusLogicalProcessors});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 217);
+            this.toolStripStatusLogicalProcessors,
+            this.toolStripStatusDiskActivity});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 215);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 7, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(256, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(342, 24);
             this.statusStrip1.TabIndex = 0;
             this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabelMemory
+            // 
+            this.toolStripStatusLabelMemory.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right;
+            this.toolStripStatusLabelMemory.Name = "toolStripStatusLabelMemory";
+            this.toolStripStatusLabelMemory.Size = new System.Drawing.Size(4, 19);
             // 
             // toolStripDropDownButton1
             // 
@@ -74,21 +82,21 @@
             this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
             this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-            this.toolStripDropDownButton1.Size = new System.Drawing.Size(46, 20);
+            this.toolStripDropDownButton1.Size = new System.Drawing.Size(59, 22);
             this.toolStripDropDownButton1.Text = "Format";
             this.toolStripDropDownButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             // 
             // plotToolStripMenuItem
             // 
             this.plotToolStripMenuItem.Name = "plotToolStripMenuItem";
-            this.plotToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.plotToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.plotToolStripMenuItem.Text = "Plot";
             this.plotToolStripMenuItem.Click += new System.EventHandler(this.plotToolStripMenuItem_Click);
             // 
             // updateRateToolStripMenuItem
             // 
             this.updateRateToolStripMenuItem.Name = "updateRateToolStripMenuItem";
-            this.updateRateToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.updateRateToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.updateRateToolStripMenuItem.Text = "Set Update Rate";
             this.updateRateToolStripMenuItem.Click += new System.EventHandler(this.updateRateToolStripMenuItem_Click);
             // 
@@ -96,32 +104,32 @@
             // 
             this.toolStripStatusLabel1.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(79, 17);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(103, 19);
             this.toolStripStatusLabel1.Text = "No. Processors:  ";
             // 
             // toolStripStatusNoProcessors
             // 
             this.toolStripStatusNoProcessors.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right;
             this.toolStripStatusNoProcessors.Name = "toolStripStatusNoProcessors";
-            this.toolStripStatusNoProcessors.Size = new System.Drawing.Size(12, 17);
+            this.toolStripStatusNoProcessors.Size = new System.Drawing.Size(18, 19);
             this.toolStripStatusNoProcessors.Text = "1";
             // 
             // toolStripStatusLabel2
             // 
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(54, 17);
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(70, 19);
             this.toolStripStatusLabel2.Text = "No. Cores:  ";
             // 
             // toolStripStatusNoCores
             // 
             this.toolStripStatusNoCores.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right;
             this.toolStripStatusNoCores.Name = "toolStripStatusNoCores";
-            this.toolStripStatusNoCores.Size = new System.Drawing.Size(4, 17);
+            this.toolStripStatusNoCores.Size = new System.Drawing.Size(4, 19);
             // 
             // toolStripStatusLabel3
             // 
             this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
-            this.toolStripStatusLabel3.Size = new System.Drawing.Size(90, 12);
+            this.toolStripStatusLabel3.Size = new System.Drawing.Size(120, 15);
             this.toolStripStatusLabel3.Text = "Logical Processors:  ";
             // 
             // toolStripStatusLogicalProcessors
@@ -142,23 +150,23 @@
             this.txtCPUUsage.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.txtCPUUsage.Multiline = true;
             this.txtCPUUsage.Name = "txtCPUUsage";
-            this.txtCPUUsage.Size = new System.Drawing.Size(256, 217);
+            this.txtCPUUsage.Size = new System.Drawing.Size(342, 215);
             this.txtCPUUsage.TabIndex = 1;
             // 
-            // toolStripStatusLabelMemory
+            // toolStripStatusDiskActivity
             // 
-            this.toolStripStatusLabelMemory.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right;
-            this.toolStripStatusLabelMemory.Name = "toolStripStatusLabelMemory";
-            this.toolStripStatusLabelMemory.Size = new System.Drawing.Size(4, 17);
+            this.toolStripStatusDiskActivity.Name = "toolStripStatusDiskActivity";
+            this.toolStripStatusDiskActivity.Size = new System.Drawing.Size(74, 15);
+            this.toolStripStatusDiskActivity.Text = "Read / Write";
             // 
             // FormProcessorInfo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(3F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(256, 239);
+            this.ClientSize = new System.Drawing.Size(342, 239);
             this.Controls.Add(this.txtCPUUsage);
             this.Controls.Add(this.statusStrip1);
-            this.Font = new System.Drawing.Font("Blue Highway Condensed", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.MaximizeBox = false;
@@ -189,6 +197,7 @@
         private System.Windows.Forms.ToolStripMenuItem plotToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem updateRateToolStripMenuItem;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelMemory;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusDiskActivity;
     }
 }
 

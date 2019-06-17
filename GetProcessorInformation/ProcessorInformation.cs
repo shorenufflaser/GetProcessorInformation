@@ -27,6 +27,8 @@ namespace GetProcessorInformation
             m_iNoCores = 0;
             m_iLogicalProcessors = 0;
             m_iLastError = 0;
+            m_iLastState = -1;
+
             m_DiskPerformanceCount = null;
             m_perform = new List<PerformanceCounter>();
             m_percentPerform = new List<float>();
@@ -64,6 +66,7 @@ namespace GetProcessorInformation
         protected int m_iLogicalProcessors;
         protected int m_iUpdateRate;
         protected int m_iLastError;
+        protected int m_iLastState;
         protected bool m_bPlot;
         protected bool m_bSetWindowPos;
         protected float m_fTotalMemoryAvailable;
@@ -76,6 +79,8 @@ namespace GetProcessorInformation
         protected List<float> m_percentPerform;
         protected List<SolidBrush> m_brushes;
         protected PerformanceCounter m_DiskPerformanceCount;
+        protected PerformanceCounter m_DiskPerformanceReadPerSec;
+        protected PerformanceCounter m_DiskPerformanceWritePerSec;
 
         protected override void OnHandleCreated(EventArgs e)
         {
@@ -164,7 +169,9 @@ namespace GetProcessorInformation
 
         protected int GetDiskTime()
         {
+            int iNewState;
             int iRet;
+            float fReadValue, fWriteValue;
 
             iRet = 0;
             try
@@ -178,12 +185,46 @@ namespace GetProcessorInformation
 
                     m_DiskPerformanceCount = new PerformanceCounter("PhysicalDisk", "% Idle Time", "_Total");
                     //m_DiskPerformanceCount = new PerformanceCounter("PhysicalDisk", "% Idle Time", "2 D:");
+                    m_DiskPerformanceReadPerSec = new PerformanceCounter("PhysicalDisk", "Disk Read Bytes/sec", "_Total");
+                    m_DiskPerformanceWritePerSec = new PerformanceCounter("PhysicalDisk", "Disk Write Bytes/sec", "_Total");
                 }
                 m_fTotalDiskTime = 100.0f - m_DiskPerformanceCount.NextValue();
                 if (m_fTotalDiskTime > 100.0f)
                     m_fTotalDiskTime = 100.0f;
                 else if (m_fTotalDiskTime < 0.0f)
                     m_fTotalDiskTime = 0.0f;
+
+                iNewState = 0;
+                fReadValue = m_DiskPerformanceReadPerSec.NextValue();
+                fWriteValue = m_DiskPerformanceWritePerSec.NextValue();
+                if (fReadValue > fWriteValue)
+                    iNewState = 1;
+                else if (fReadValue < fWriteValue)
+                {
+                    iNewState = 2;
+                }
+                if (iNewState != m_iLastState)
+                {
+                    toolStripStatusDiskActivity.Text = " ";
+                    toolStripStatusDiskActivity.ForeColor = Color.Green;
+                    switch (iNewState)
+                    {
+                        case 0:
+                            toolStripStatusDiskActivity.ForeColor = Color.Green;
+                            toolStripStatusDiskActivity.Text = " ";
+                            break;
+                        case 1:
+                            toolStripStatusDiskActivity.ForeColor = Color.Green;
+                            toolStripStatusDiskActivity.Text = "Read";
+                            break;
+                        case 2:
+                            toolStripStatusDiskActivity.ForeColor = Color.Red;
+                            toolStripStatusDiskActivity.Text = "Write";
+                            break;
+                    }
+                    m_iLastState = iNewState;
+                    statusStrip1.Update();
+                }
             }
             catch (Exception ex)
             {
