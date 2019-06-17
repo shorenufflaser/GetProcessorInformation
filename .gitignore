@@ -47,6 +47,7 @@ Temporary Items
 .apdisk
 /GetProcessorInformation/bin
 /GetProcessorInformation/obj/Debug
+/GetProcessorInformation/obj/x64
 *.suo
 
 # MSTest test Results
