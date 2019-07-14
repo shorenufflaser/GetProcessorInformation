@@ -41,9 +41,9 @@
             this.toolStripStatusNoCores = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLogicalProcessors = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusDiskActivity = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.txtCPUUsage = new System.Windows.Forms.TextBox();
-            this.toolStripStatusDiskActivity = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -138,6 +138,13 @@
             this.toolStripStatusLogicalProcessors.Name = "toolStripStatusLogicalProcessors";
             this.toolStripStatusLogicalProcessors.Size = new System.Drawing.Size(4, 4);
             // 
+            // toolStripStatusDiskActivity
+            // 
+            this.toolStripStatusDiskActivity.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusDiskActivity.Name = "toolStripStatusDiskActivity";
+            this.toolStripStatusDiskActivity.Size = new System.Drawing.Size(99, 17);
+            this.toolStripStatusDiskActivity.Text = "Read / Write";
+            // 
             // timer1
             // 
             this.timer1.Interval = 500;
@@ -152,12 +159,6 @@
             this.txtCPUUsage.Name = "txtCPUUsage";
             this.txtCPUUsage.Size = new System.Drawing.Size(342, 215);
             this.txtCPUUsage.TabIndex = 1;
-            // 
-            // toolStripStatusDiskActivity
-            // 
-            this.toolStripStatusDiskActivity.Name = "toolStripStatusDiskActivity";
-            this.toolStripStatusDiskActivity.Size = new System.Drawing.Size(74, 15);
-            this.toolStripStatusDiskActivity.Text = "Read / Write";
             // 
             // FormProcessorInfo
             // 
