@@ -90,3 +90,4 @@ ipch/
 *.Cache
 *.cache
 *.pdb
+GetProcessorInformation/obj/x64/Release/DesignTimeResolveAssemblyReferences.cache
